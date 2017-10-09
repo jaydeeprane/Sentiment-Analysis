@@ -78,7 +78,7 @@ def feature_vecs_NLP(train_pos, train_neg, test_pos, test_neg):
     #   (1) Contains no stop words
     #   (2) Is in at least 1% of the positive texts or 1% of the negative texts
     #   (3) Is in at least twice as many postive texts as negative texts, or vice-versa.
-    # YOUR CODE HERE
+
     
     # Creating dictionaries of positive and negative words occuring in reviews/tweets
     posFinalDict={}
@@ -124,8 +124,7 @@ def feature_vecs_NLP(train_pos, train_neg, test_pos, test_neg):
 
     # Using the above words as features, construct binary vectors for each text in the training and test set.
     # These should be python lists containing 0 and 1 integers.
-    # YOUR CODE HERE
-
+ 
     # Updating the vectors to be returned based on feature list generated
     featureList=featureList.keys()
     
@@ -194,7 +193,7 @@ def feature_vecs_DOC(train_pos, train_neg, test_pos, test_neg):
     """
     # Doc2Vec requires LabeledSentence objects as input.
     # Turn the datasets from lists of words to lists of LabeledSentence objects.
-    # YOUR CODE HERE
+   
 
     # Creating and updating labelled sentence objects
     labeled_train_pos=[]
@@ -234,7 +233,7 @@ def feature_vecs_DOC(train_pos, train_neg, test_pos, test_neg):
         model.train(sentences)
     
     # Use the docvecs function to extract the feature vectors for the training and test data
-    # YOUR CODE HERE
+  
     train_pos_vec=[]
 
     for i,fv in enumerate(train_pos):
@@ -272,7 +271,7 @@ def build_models_NLP(train_pos_vec, train_neg_vec):
     # Use sklearn's BernoulliNB and LogisticRegression functions to fit two models to the training data.
     # For BernoulliNB, use alpha=1.0 and binarize=None
     # For LogisticRegression, pass no parameters
-    # YOUR CODE HERE
+   
     X = train_pos_vec + train_neg_vec
     bm = sklearn.naive_bayes.BernoulliNB(alpha=1.0,binarize=None)
     nb_model = bm.fit(X, Y)
@@ -293,7 +292,7 @@ def build_models_DOC(train_pos_vec, train_neg_vec):
 
     # Use sklearn's GaussianNB and LogisticRegression functions to fit two models to the training data.
     # For LogisticRegression, pass no parameters
-    # YOUR CODE HERE
+   
     X = train_pos_vec + train_neg_vec
 
     gm = sklearn.naive_bayes.GaussianNB()
@@ -310,7 +309,7 @@ def evaluate_model(model, test_pos_vec, test_neg_vec, print_confusion=False):
     Prints the confusion matrix and accuracy of the model.
     """
     # Use the predict function and calculate the true/false positives and true/false negative.
-    # YOUR CODE HERE
+ 
     predictPos = list(model.predict(test_pos_vec))
     predictNeg = list(model.predict(test_neg_vec))
 
