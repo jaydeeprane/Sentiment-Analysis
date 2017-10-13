@@ -99,8 +99,8 @@ def feature_vecs_NLP(train_pos, train_neg, test_pos, test_neg):
 
 
     # Eliminating the stopwords from the Dictionaries
-    posWSw = { k:v for k, v in posFinalDict.items() if v not in stopwords }
-    negWSw = { k:v for k, v in negFinalDict.items() if v not in stopwords }
+    posWSw = { k:v for k, v in posFinalDict.items() if k not in stopwords }
+    negWSw = { k:v for k, v in negFinalDict.items() if k not in stopwords }
     
     # Satisfying the 1% condition given
     posFinalDict1 = { k:v for k, v in posWSw.items() if v>=(0.01*len(train_pos)) }
