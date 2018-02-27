@@ -4,4 +4,4 @@ The **sentiment.py** file contains code that classified tweets and IMDB movie re
 
 Examples of classifier models used include Logistic Regression and Naive Bayes.
 
-The**data** folder contains the training and testing set for postive and negative tweets/movie reviews.
+The **data** folder contains the training and testing set for postive and negative tweets/movie reviews.
